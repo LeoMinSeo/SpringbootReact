@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var pr = {
+        a: { b: { c: [, 1, 2, 3, 4], a: { p: [11, 12, 23, 45] } } },
+      };
+      console.log(pr);
+      //[11,12,23,45] 배열의 총합구하세요
+      var {
+        a: {
+          b: {
+            a: { p },
+          },
+        },
+      } = pr;
+      var sum = 0;
+      for (var i of p) {
+        sum += i;
+      }
+      console.log(sum);
+
+      const pow = (a, b) => {
+        var mul = 1;
+        for (var i = 0; i < b; i++) {
+          mul *= a;
+        }
+        return mul;
+      };
+      console.log(pow(3, 4));
+    </script>
+  </body>
+</html>
