@@ -7,32 +7,29 @@
   </head>
   <body>
     <script>
-      var pr = {
-        a: { b: { c: [, 1, 2, 3, 4], a: { p: [11, 12, 23, 45] } } },
-      };
-      console.log(pr);
-      //[11,12,23,45] 배열의 총합구하세요
-      var {
-        a: {
-          b: {
-            a: { p },
-          },
-        },
-      } = pr;
-      var sum = 0;
-      for (var i of p) {
-        sum += i;
+      function getData() {
+        return new Promise((resolve, reject) => {
+          resolve("사랑");
+        });
       }
-      console.log(sum);
 
-      const pow = (a, b) => {
-        var mul = 1;
-        for (var i = 0; i < b; i++) {
-          mul *= a;
-        }
-        return mul;
-      };
-      console.log(pow(3, 4));
+      function processData(data) {
+        return new Promise((resolve, reject) => {
+          resolve(data + "입니다");
+        });
+      }
+
+      function appendText(data) {
+        return new Promise((resolve, reject) => {
+          resolve(data + " 💖");
+        });
+      }
+
+      getData()
+        .then((i) => processData(i))
+        .then((result) => appendText(result))
+        .then((finalResult) => console.log(finalResult))
+        .catch((error) => console.log("에러 발생:", error));
     </script>
   </body>
 </html>
